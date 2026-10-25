@@ -76,11 +76,11 @@ A proper diagram goes in `docs/architecture/`. Full plan: [`docs/project-flow.md
 | ✩ | [Lexicon Glove (GitHub)](https://github.com/mcbottcher/ENG5220) and its [Neural Network wiki page](https://github.com/mcbottcher/ENG5220/wiki/Neural-Network) | Closest existing project: flex + IMU glove, user-trained custom gestures linked to phrases, spoken output. Shows a sliding 2 s window and a confidence threshold. Records its own data (no external dataset). |
 | ✩ | [SignSpeak paper (arXiv 2407.12020)](https://arxiv.org/abs/2407.12020) | Open ASL flex-sensor glove dataset, benchmarks of LSTM/GRU/Transformer models (best 92%). |
 | ✩ | [SignSpeak dataset (Harvard Dataverse, CC0)](https://doi.org/10.7910/DVN/ODY7GH) | 7,200 samples, 36 classes (A-Z, 1-10), 5 flex sensors at 36 Hz, 50-80 time steps each. Our reference/baseline data. One 9.8 MB tab-delimited CSV. |
-[Enabling hand gesture customization on wrist-worn devices (arXiv 2203.15239)](https://arxiv.org/pdf/2203.15239) | Few-shot gesture adding. Reports accuracy at 1, 3 and 5 examples (55.3%, 83.1%, 87.2%). A benchmark for our own curve. |
-[Few-shot learning for motor-impaired users (arXiv 2405.08969)](https://arxiv.org/pdf/2405.08969) | Learning new gestures from few samples from motor-impaired people. Matches our user story. |
-[LiveLingo (GitHub)](https://github.com/roirude/LiveLingo) | How to push synthesized speech into Zoom/Meet/Teams through VB-CABLE (virtual mic). |
-[GloveTalk (Hackster)](https://www.hackster.io/signspeak/glovetalk-converting-sign-language-to-words-6b86ef) | ESP32 + flex sensors + MPU6050 wiring and starter code. |
-[PSL glove with LSTM (MDPI, 2025)](https://www.mdpi.com/2673-4591/118/1/45) | Local prior work (Pakistan Sign Language). Examiners may know it, so we should know how we differ. |
+| - | [Enabling hand gesture customization on wrist-worn devices (arXiv 2203.15239)](https://arxiv.org/pdf/2203.15239) | Few-shot gesture adding. Reports accuracy at 1, 3 and 5 examples (55.3%, 83.1%, 87.2%). A benchmark for our own curve. |
+| - | [Few-shot learning for motor-impaired users (arXiv 2405.08969)](https://arxiv.org/pdf/2405.08969) | Learning new gestures from few samples from motor-impaired people. Matches our user story. |
+| - | [LiveLingo (GitHub)](https://github.com/roirude/LiveLingo) | How to push synthesized speech into Zoom/Meet/Teams through VB-CABLE (virtual mic). |
+| - | [GloveTalk (Hackster)](https://www.hackster.io/signspeak/glovetalk-converting-sign-language-to-words-6b86ef) | ESP32 + flex sensors + MPU6050 wiring and starter code. |
+| ✩ | [PSL glove with LSTM (MDPI, 2025)](https://www.mdpi.com/2673-4591/118/1/45) | Local prior work (Pakistan Sign Language). Examiners may know it, so we should know how we differ. |
 
 ## 4. More resources
 
