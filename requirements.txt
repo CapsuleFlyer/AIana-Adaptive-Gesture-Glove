@@ -1,0 +1,32 @@
+# Core data + classical ML
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+pyyaml
+
+# Deep learning: pick ONE as a group and delete the other
+torch
+# tensorflow
+
+# Reading the glove
+pyserial        # USB serial from the ESP32
+bleak           # Bluetooth Low Energy (only if streaming over BLE)
+
+# Speech and virtual microphone
+pyttsx3         # offline text-to-speech
+gTTS            # online text-to-speech (supports Urdu, needs internet)
+sounddevice     # play audio to a chosen device (e.g. VB-CABLE)
+soundfile
+
+# Laptop actions
+pyautogui
+
+# UI (pick what you use)
+# PyQt5
+# tkinter ships with Python
+
+# Dev
+pytest
+jupyter

@@ -1,0 +1,17 @@
+{
+  "_comment": "EXAMPLE ONLY. Each gesture maps to one action. Replace with our real gestures. type 'speak' = say the phrase into the call; type 'laptop' = run a keyboard shortcut. Risky actions need the confirm gesture first.",
+  "confirm_gesture": "confirm",
+  "cancel_gesture": "cancel",
+  "gestures": [
+    { "name": "hello",        "type": "speak",  "phrase": "Hello, can you hear me?" },
+    { "name": "yes",          "type": "speak",  "phrase": "Yes." },
+    { "name": "no",           "type": "speak",  "phrase": "No." },
+    { "name": "repeat",       "type": "speak",  "phrase": "Could you please repeat that?" },
+    { "name": "thanks",       "type": "speak",  "phrase": "Thank you." },
+    { "name": "scroll_down",  "type": "laptop", "action": "scroll_down",  "needs_confirm": false },
+    { "name": "scroll_up",    "type": "laptop", "action": "scroll_up",    "needs_confirm": false },
+    { "name": "next_tab",     "type": "laptop", "action": "ctrl+tab",     "needs_confirm": false },
+    { "name": "prev_tab",     "type": "laptop", "action": "ctrl+shift+tab", "needs_confirm": false },
+    { "name": "close_window", "type": "laptop", "action": "alt+f4",       "needs_confirm": true }
+  ]
+}

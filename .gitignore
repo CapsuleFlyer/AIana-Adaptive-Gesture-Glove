@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Secrets (never commit API keys)
+.env
+*.key
+secrets.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Arduino / PlatformIO build output
+.pio/
+build/
+
+# Public dataset (re-download; remove this line if you want to commit the 9.8 MB file)
+data/external/*
+!data/external/README.md
+
+# Other people's code cloned for reading only
+reference_code/*
+!reference_code/README.md
+
+# Large trained models (keep small final ones if the course zip needs them: remove the line)
+saved_models/*
+!saved_models/README.md
+
+# Paper PDFs are optional to commit
+# docs/papers/*.pdf

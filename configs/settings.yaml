@@ -1,0 +1,39 @@
+# STARTING GUESSES. Tune these once we have real data, and write down what we changed and why.
+
+glove:
+  n_flex: 5            # one per finger
+  n_imu_axes: 6        # MPU6050: 3 accel + 3 gyro
+  sample_rate_hz: 50   # SignSpeak is 36 Hz, Lexicon Glove is 10 Hz. Decide as a group.
+  connection: serial   # serial | ble
+  serial_port: COM3    # change to your port
+  baud_rate: 115200
+
+windowing:
+  window_seconds: 2.0  # Lexicon Glove used a 2 s sliding window
+  fixed_length_steps: 64   # pad/resample every sample to this length (SignSpeak samples are 50-80 steps)
+  stride_seconds: 0.25
+
+preprocessing:
+  low_pass_cutoff_hz: 8
+  normalize: per_user_min_max   # scale each sensor to 0-1 per person (needed: different ADC ranges)
+
+model:
+  baselines: [knn, svm, random_forest]
+  main: cnn1d
+  confidence_threshold: 0.8     # below this, say and do nothing
+  few_shot:
+    shots: 5                    # examples per new gesture (we report 1, 3 and 5)
+    method: prototype           # nearest class mean in the embedding space
+
+conflict_checker:
+  similarity_warning_threshold: 0.85   # warn if a new gesture is this close to an existing one
+
+speech:
+  engine: pyttsx3          # pyttsx3 (offline) | gtts (online, supports Urdu)
+  language: en
+  virtual_mic_device: "CABLE Input"   # VB-CABLE playback device name
+  rate: 1.0
+
+evaluation:
+  split: leave_one_person_out
+  report: [accuracy, f1, confusion_matrix, accuracy_vs_shots, latency_ms, false_activation_rate]
