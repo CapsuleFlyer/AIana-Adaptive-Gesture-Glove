@@ -6,8 +6,8 @@ A sensor glove that **learns each user's own gestures** and turns them into **sp
 
 **Course:** AI2002 Artificial Intelligence, Semester Project, Fall 2026 (FAST-NUCES Islamabad)
 **Path:** B (Hardware-based)
-**Group #:** `____`
-**Members:** `____`, `____`, `____`
+**Group #:** `7`
+**Members:** `24i-3060`, `24i-3062`, `24i-3081` (yes you guys are just numbers to me :smirk:)
 
 ---
 
@@ -69,18 +69,18 @@ A proper diagram goes in `docs/architecture/`. Full plan: [`docs/project-flow.md
 
 ---
 
-## 3. ⭐ Start here (check these out first)
+## 3. Start here (check these out first)
 
 | | Resource | Why it matters |
 |---|---|---|
-| ⭐ | [Lexicon Glove (GitHub)](https://github.com/mcbottcher/ENG5220) and its [Neural Network wiki page](https://github.com/mcbottcher/ENG5220/wiki/Neural-Network) | Closest existing project: flex + IMU glove, user-trained custom gestures linked to phrases, spoken output. Shows a sliding 2 s window and a confidence threshold. Records its own data (no external dataset). |
-| ⭐ | [SignSpeak paper (arXiv 2407.12020)](https://arxiv.org/abs/2407.12020) | Open ASL flex-sensor glove dataset, benchmarks of LSTM/GRU/Transformer models (best 92%). |
-| ⭐ | [SignSpeak dataset (Harvard Dataverse, CC0)](https://doi.org/10.7910/DVN/ODY7GH) | 7,200 samples, 36 classes (A-Z, 1-10), 5 flex sensors at 36 Hz, 50-80 time steps each. Our reference/baseline data. One 9.8 MB tab-delimited CSV. |
-| ⭐ | [Enabling hand gesture customization on wrist-worn devices (arXiv 2203.15239)](https://arxiv.org/pdf/2203.15239) | Few-shot gesture adding. Reports accuracy at 1, 3 and 5 examples (55.3%, 83.1%, 87.2%). A benchmark for our own curve. |
-| ⭐ | [Few-shot learning for motor-impaired users (arXiv 2405.08969)](https://arxiv.org/pdf/2405.08969) | Learning new gestures from few samples from motor-impaired people. Matches our user story. |
-| ⭐ | [LiveLingo (GitHub)](https://github.com/roirude/LiveLingo) | How to push synthesized speech into Zoom/Meet/Teams through VB-CABLE (virtual mic). |
-| ⭐ | [GloveTalk (Hackster)](https://www.hackster.io/signspeak/glovetalk-converting-sign-language-to-words-6b86ef) | ESP32 + flex sensors + MPU6050 wiring and starter code. |
-| ⭐ | [PSL glove with LSTM (MDPI, 2025)](https://www.mdpi.com/2673-4591/118/1/45) | Local prior work (Pakistan Sign Language). Examiners may know it, so we should know how we differ. |
+| ✩ | [Lexicon Glove (GitHub)](https://github.com/mcbottcher/ENG5220) and its [Neural Network wiki page](https://github.com/mcbottcher/ENG5220/wiki/Neural-Network) | Closest existing project: flex + IMU glove, user-trained custom gestures linked to phrases, spoken output. Shows a sliding 2 s window and a confidence threshold. Records its own data (no external dataset). |
+| ✩ | [SignSpeak paper (arXiv 2407.12020)](https://arxiv.org/abs/2407.12020) | Open ASL flex-sensor glove dataset, benchmarks of LSTM/GRU/Transformer models (best 92%). |
+| ✩ | [SignSpeak dataset (Harvard Dataverse, CC0)](https://doi.org/10.7910/DVN/ODY7GH) | 7,200 samples, 36 classes (A-Z, 1-10), 5 flex sensors at 36 Hz, 50-80 time steps each. Our reference/baseline data. One 9.8 MB tab-delimited CSV. |
+[Enabling hand gesture customization on wrist-worn devices (arXiv 2203.15239)](https://arxiv.org/pdf/2203.15239) | Few-shot gesture adding. Reports accuracy at 1, 3 and 5 examples (55.3%, 83.1%, 87.2%). A benchmark for our own curve. |
+[Few-shot learning for motor-impaired users (arXiv 2405.08969)](https://arxiv.org/pdf/2405.08969) | Learning new gestures from few samples from motor-impaired people. Matches our user story. |
+[LiveLingo (GitHub)](https://github.com/roirude/LiveLingo) | How to push synthesized speech into Zoom/Meet/Teams through VB-CABLE (virtual mic). |
+[GloveTalk (Hackster)](https://www.hackster.io/signspeak/glovetalk-converting-sign-language-to-words-6b86ef) | ESP32 + flex sensors + MPU6050 wiring and starter code. |
+[PSL glove with LSTM (MDPI, 2025)](https://www.mdpi.com/2673-4591/118/1/45) | Local prior work (Pakistan Sign Language). Examiners may know it, so we should know how we differ. |
 
 ## 4. More resources
 
@@ -159,7 +159,6 @@ Every working folder has a `README.md` saying what goes there and who owns it. F
 
 | Date | What |
 |---|---|
-| Oct 25, 2026 | Dataset + models + use case + hardware finalized (sheet) |
 | Dec 6, 2026 | Final submission: one zip per group on GCR |
 | Dec 7-9, 2026 | Live demonstrations |
 
