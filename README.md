@@ -6,7 +6,7 @@ A sensor glove that **learns each user's own gestures** and turns them into **sp
 
 **Course:** AI2002 Artificial Intelligence, Semester Project, Fall 2026 (FAST-NUCES Islamabad)
 **Path:** B (Hardware-based)
-**Group #:** `7`
+**Group #:** `3`
 **Members:** `24i-3060`, `24i-3062`, `24i-3081` (yes you guys are just numbers to me :smirk:)
 
 ---
