@@ -3,6 +3,8 @@
 The public **SignSpeak** dataset (American Sign Language letters and numbers from a 5-flex-sensor glove). The dataset file itself is git-ignored: download it yourself.
 
 ## Download
+Run once: `python scripts/download_data.py` (needs internet; the file is git-ignored, so every team member does this). If it fails, do it by hand:
+
 1. Open https://doi.org/10.7910/DVN/ODY7GH (Harvard Dataverse, "SignSpeak American Sign Language Dataset", Version 1.1).
 2. Files tab, then `SignSpeakDataset.csv` (tab-delimited, about 9.8 MB), then Download.
 3. Save it as `data/external/SignSpeakDataset.csv`.

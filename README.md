@@ -179,6 +179,7 @@ The full app is not written yet. What works now:
 
 ```bash
 pip install -r requirements.txt
+python scripts/download_data.py             # one time: SignSpeak into data/external/
 python -m pytest tests                      # no glove needed
 # flash firmware/glove_esp32 to the ESP32 (see firmware/bringup_tests first), then:
 python scripts/reader.py                    # check rate and dropped samples
