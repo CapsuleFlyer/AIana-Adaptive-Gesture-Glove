@@ -1,15 +1,13 @@
 # src/aiana/models
 
-**This is where the machine learning models will go.**
+Recognition models and the interface the app uses to call them.
 
-**Owner:** `____`  **Status:** not started
+Written so far (`api.py`):
+- `Recognizer` interface: `predict(window) -> (gesture | None, confidence)`, `enroll(name, windows) -> EnrollResult`, `save`, `load`.
+- `StubRecognizer`: **fake** output so the app can be built before the real model exists.
+- `Normalizer`: per-user calibration. Flex channels are scaled to 0-1 from an open-hand and a fist recording; IMU channels use fixed full-scale scaling.
 
-## What goes here
-- `baselines`: kNN, SVM, Random Forest on summary features. These are the numbers the neural net has to beat.
-- `cnn1d`: a 1D convolutional network on the raw time series. It also produces an embedding (a compact fingerprint of a gesture) that the few-shot step uses.
-- `fewshot`: prototype matching. Average the embeddings of a user's 3-5 examples into a prototype per gesture, then match new recordings to the nearest prototype. Adding a gesture needs no full retraining.
-- Confidence score for each prediction (so low-confidence gestures trigger nothing)
-
-## Write down for the report
-- Why each algorithm suits our use case (generic "AI is useful" statements are not accepted)
-- Input, output, and how the output drives the real-world action
+Planned:
+- Baselines: kNN, SVM, Random Forest on summary features (the numbers the neural net must beat).
+- `cnn1d`: a 1D CNN on raw windows, also used as the embedding.
+- Few-shot prototype matching: average the embeddings of a user's 3-5 examples per gesture and match new recordings to the nearest prototype, so adding a gesture needs no retraining. Includes the confidence threshold and the `idle` class.

@@ -28,18 +28,26 @@ bool mpuWrite(uint8_t reg, uint8_t val) {
 }
 
 // Reads accel XYZ, skips temperature, reads gyro XYZ (raw int16).
+// Each value is read in two explicit steps: C++ does not guarantee the order of
+// "Wire.read() << 8 | Wire.read()", so the two bytes could be swapped.
+int16_t readWord() {
+  uint8_t hi = Wire.read();
+  uint8_t lo = Wire.read();
+  return (int16_t)((hi << 8) | lo);
+}
+
 bool readMpu(int16_t v[6]) {
   Wire.beginTransmission(MPU_ADDR);
   Wire.write(0x3B);
   if (Wire.endTransmission(false) != 0) return false;
   if (Wire.requestFrom((int)MPU_ADDR, 14) != 14) return false;
-  v[0] = (Wire.read() << 8) | Wire.read();  // ax
-  v[1] = (Wire.read() << 8) | Wire.read();  // ay
-  v[2] = (Wire.read() << 8) | Wire.read();  // az
-  Wire.read(); Wire.read();                 // temperature (ignored)
-  v[3] = (Wire.read() << 8) | Wire.read();  // gx
-  v[4] = (Wire.read() << 8) | Wire.read();  // gy
-  v[5] = (Wire.read() << 8) | Wire.read();  // gz
+  v[0] = readWord();  // ax
+  v[1] = readWord();  // ay
+  v[2] = readWord();  // az
+  readWord();         // temperature (ignored)
+  v[3] = readWord();  // gx
+  v[4] = readWord();  // gy
+  v[5] = readWord();  // gz
   return true;
 }
 
@@ -54,6 +62,7 @@ void setup() {
   bool ok = mpuWrite(0x6B, 0x00);  // wake up
   ok = ok && mpuWrite(0x1C, 0x08); // accel +-4 g  (8192 LSB/g)
   ok = ok && mpuWrite(0x1B, 0x08); // gyro +-500 dps (65.5 LSB/dps)
+  ok = ok && mpuWrite(0x1A, 0x03); // low-pass ~44 Hz (we sample at 50 Hz, this reduces noise/aliasing)
   if (!ok) Serial.println("#ERR,mpu_not_found_check_wiring");
 
   Wire.beginTransmission(MPU_ADDR);

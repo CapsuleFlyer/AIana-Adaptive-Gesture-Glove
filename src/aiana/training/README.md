@@ -1,17 +1,10 @@
 # src/aiana/training
 
-**This is where training and evaluation scripts will go.**
+Training and evaluation code. Not written yet; the first baselines run from `scripts/run_baselines.py`.
 
-**Owner:** `____`  **Status:** not started
+Planned:
+- Training scripts for each model.
+- Evaluation: accuracy, F1, confusion matrix; **leave-one-person-out**; accuracy at 1, 3 and 5 shots; latency from end of gesture to speech heard; false-activation rate; flex vs flex + IMU ablation.
+- Saving plots and tables to `results/` and models to `saved_models/`.
 
-## What goes here
-- Training scripts for each model
-- **Evaluation:**
-  - accuracy, F1, confusion matrix
-  - **leave-one-person-out** (train on everyone but one volunteer, test on that person)
-  - **accuracy vs number of examples** (1, 3 and 5 shots) for few-shot personalization
-  - latency from the end of a gesture to speech heard
-  - false-activation rate (the glove acted when no gesture was made)
-- Saving plots and tables into `results/` and models into `saved_models/`
-
-Reference point: the wrist-worn customization paper reports 55.3%, 83.1% and 87.2% accuracy at 1, 3 and 5 examples. SignSpeak's paper reports 92% for its best model.
+Reference points: the wrist-worn customization paper reports 55.3%, 83.1% and 87.2% at 1, 3 and 5 examples. SignSpeak's paper reports 92% for its best model.

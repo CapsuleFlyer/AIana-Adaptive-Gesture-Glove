@@ -1,12 +1,10 @@
 # docs/demo
 
-**This is where the demo script and the video link will go.**
+Material for the demo, which has two parts: a pre-recorded video (link only) and the mandatory live demo.
 
-**Owner:** `____`  **Status:** not started
+Contents (as they get made):
+- `demo-script.md`: the exact order of the live demo, who does what, and the fallback plan if the connection or audio fails.
+- `video-link.txt`: the Google Drive link to the working-glove video.
+- Screenshots or short recordings of testing.
 
-Put here:
-- `demo-script.md`: the exact order of the live demo (see the example in `../project-flow.md`), who does what, and a backup plan if Bluetooth drops
-- `video-link.txt`: the Google Drive link to the pre-recorded working-glove video (Path B requires the link only, not the file)
-- Screenshots or short recordings of testing
-
-The live demo is mandatory even with a pre-recorded video.
+The live demo is required even when the video exists.

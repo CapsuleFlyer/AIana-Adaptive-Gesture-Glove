@@ -1,14 +1,10 @@
 # docs/papers
 
-**This is where PDFs of papers we cite will go.**
+PDFs of the papers we cite. Citation text and links for each are in [`../references.md`](../references.md).
 
-**Owner:** `____`  **Status:** empty
-
-Suggested PDFs (name them clearly):
-- `signspeak_2407.12020.pdf`
-- `fewshot_wrist_2203.15239.pdf`
-- `fewshot_motor_impaired_2405.08969.pdf`
-- `psl_lstm_glove_mdpi_2025.pdf`
-- `psl_glove_ieee_access_2025.pdf` (if open access)
-
-Citation text for each is in `../references.md`.
+| File | Paper |
+|---|---|
+| `SignSpeak_2407.12020v2.pdf` | SignSpeak: the flex-sensor ASL glove and the dataset we use for development. |
+| `Gesture_2203.15239v2.pdf` | Few-shot wrist-worn gesture customization: source of our 1/3/5-shot benchmark (55.3 / 83.1 / 87.2%). |
+| `LEE_2405.08969v2.pdf` | Few-shot gesture personalization for motor-impaired users. |
+| `PSL_engproc-118-00045.pdf` | Pakistan Sign Language glove work. |

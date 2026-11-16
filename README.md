@@ -51,7 +51,7 @@ People with limited speech or mobility (for example ALS, stroke, cerebral palsy,
                                                                        confirm gesture)
 ```
 
-A proper diagram goes in `docs/architecture/`. Full plan: [`docs/project-flow.md`](docs/project-flow.md).
+A proper diagram goes in `docs/architecture/`. Full plan: [`project-flow.md`](project-flow.md).
 
 ### Core vs stretch
 
@@ -136,11 +136,11 @@ aiana-glove/
 ├── notebooks/              <- exploration and experiments
 ├── saved_models/           <- trained model files
 ├── results/                <- confusion matrices, plots, metric tables
-├── scripts/                <- helper scripts (download data, record samples)
+├── scripts/                <- helper scripts (reader, recorder, baselines, speech test)
 ├── tests/                  <- tests
 ├── reference_code/         <- other people's repos cloned for READING only (git-ignored)
+├── project-flow.md         <- the plan: roles, interfaces, timeline, risks, task table
 └── docs/
-    ├── project-flow.md     <- phases, timeline, who does what
     ├── deliverables-checklist.md
     ├── references.md       <- citations
     ├── architecture/       <- pipeline diagram
@@ -151,7 +151,7 @@ aiana-glove/
     └── papers/             <- PDFs of papers we cite
 ```
 
-Every working folder has a `README.md` saying what goes there and who owns it. Fill in the **Owner** and **Status** lines as work starts.
+Every working folder has a `README.md` giving an overview of the folder: what is in it now and what is planned.
 
 ---
 
@@ -162,7 +162,7 @@ Every working folder has a `README.md` saying what goes there and who owns it. F
 | Dec 6, 2026 | Final submission: one zip per group on GCR |
 | Dec 7-9, 2026 | Live demonstrations |
 
-Details and weekly targets: [`docs/project-flow.md`](docs/project-flow.md). Required deliverables: [`docs/deliverables-checklist.md`](docs/deliverables-checklist.md).
+Details and weekly targets: [`project-flow.md`](project-flow.md). Required deliverables: [`docs/deliverables-checklist.md`](docs/deliverables-checklist.md).
 
 ---
 
@@ -175,10 +175,14 @@ Details and weekly targets: [`docs/project-flow.md`](docs/project-flow.md). Requ
 
 ## 8. Quick start
 
-*(Fill in once code exists.)*
+The full app is not written yet. What works now:
 
 ```bash
 pip install -r requirements.txt
-# 1. flash firmware/glove_esp32 to the ESP32
-# 2. python -m aiana.app.main
+python -m pytest tests                      # no glove needed
+# flash firmware/glove_esp32 to the ESP32 (see firmware/bringup_tests first), then:
+python scripts/reader.py                    # check rate and dropped samples
+python scripts/record.py --user user01 --gestures hello,yes,idle --reps 5
+python scripts/run_baselines.py --synthetic # baselines self-test
+python scripts/speech_test.py --list        # find the VB-CABLE device
 ```

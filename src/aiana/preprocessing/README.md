@@ -1,14 +1,12 @@
 # src/aiana/preprocessing
 
-**This is where cleaning and normalizing the sensor data will happen.**
+Turning raw sensor data into model input.
 
-**Owner:** `____`  **Status:** not started
+Written so far (`signspeak.py`):
+- `load_signspeak()`: reads `data/external/SignSpeakDataset.csv` into `X (N, 64, 5)`. The column layout is an unverified guess: check it with `scripts/inspect_dataset.py`.
+- `per_user_minmax()`: scales each sensor to 0-1 per user (needed because hands differ and ADC ranges differ).
 
-## What goes here
-- Low-pass filtering of flex and IMU signals
-- Padding or resampling every recording to a fixed length
-- **Per-user normalization/calibration** (scale each sensor to 0-1 per person). Needed because hands differ and the ESP32 ADC (12-bit) differs from the Arduino readings in SignSpeak (10-bit).
-- A loader for the SignSpeak CSV (reshape to time steps x 5 sensors)
-- Feature extraction for the baseline models (mean, variance, min/max per channel)
+Resampling to a fixed 64 steps lives in `acquisition/reader.py` (`resample()`).
 
-Keep the number of channels configurable: 5 (flex only, SignSpeak) or 11 (flex + 6 IMU axes, our glove).
+Planned: low-pass filtering, feature extraction for the baselines, building `.npz` files for our own recordings.
+Channels are 5 (flex only, SignSpeak) or 11 (flex + 6 IMU axes, our glove).

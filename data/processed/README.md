@@ -1,9 +1,10 @@
 # data/processed
 
-**This is where cleaned, fixed-length windows will go** (output of `src/aiana/preprocessing`).
+Cleaned, fixed-length windows made from `data/raw/` or `data/external/`, ready for training and evaluation.
 
-**Owner:** `____`  **Status:** not started
+- Format: `.npz` with `X` float32 `(N, 64, C)`, `y` (gesture labels), `user` (volunteer ID) and `session`.
+- `C = 11` for our glove (5 flex + 3 accel + 3 gyro), `C = 5` for SignSpeak (flex only).
+- The `user` array is what makes leave-one-person-out evaluation possible.
+- Everything here can be regenerated from the raw data, so it is safe to leave out of the final zip if size is a problem.
 
-Expected contents later: filtered and normalized arrays (for example `.npy` or `.csv`) with labels and a volunteer ID per sample, so we can split by person for leave-one-person-out evaluation.
-
-These files can be regenerated from `raw/`, so they are fine to leave out of the final zip if size is a problem.
+Produced by `src/aiana/preprocessing/`.

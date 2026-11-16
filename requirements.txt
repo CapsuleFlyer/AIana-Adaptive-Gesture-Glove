@@ -6,19 +6,17 @@ scikit-learn
 matplotlib
 pyyaml
 
-# Deep learning: pick ONE as a group and delete the other
+# Deep learning (PyTorch only)
 torch
-# tensorflow
 
 # Reading the glove
 pyserial        # USB serial from the ESP32
-bleak           # Bluetooth Low Energy (only if streaming over BLE)
 
 # Speech and virtual microphone
 pyttsx3         # offline text-to-speech
-gTTS            # online text-to-speech (supports Urdu, needs internet)
 sounddevice     # play audio to a chosen device (e.g. VB-CABLE)
-soundfile
+
+# Stretch goals, install only if used: bleak (Bluetooth LE), gTTS (online TTS, Urdu)
 
 # Laptop actions
 pyautogui

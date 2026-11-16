@@ -5,7 +5,7 @@ glove:
   n_imu_axes: 6        # MPU6050: 3 accel + 3 gyro
   sample_rate_hz: 50   # SignSpeak is 36 Hz, Lexicon Glove is 10 Hz. Decide as a group.
   connection: serial   # serial | ble
-  serial_port: COM3    # change to your port
+  serial_port: auto    # auto = find the CP210x port; or set e.g. COM5
   baud_rate: 115200
 
 windowing:

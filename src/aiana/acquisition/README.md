@@ -1,15 +1,13 @@
 # src/aiana/acquisition
 
-**This is where the code that reads the glove will go.**
+Getting glove data into Python.
 
-**Owner:** `____`  **Status:** not started
+`reader.py` provides:
+- `read_samples(kind, ...)`: one interface for three sources: `"serial"` (the real glove), `"replay"` (a recorded CSV), `"fake"` (generated data). The rest of the app does not care which one it gets, so everyone can develop without the glove.
+- `parse_line()`: turns one serial line into a `Sample`; info lines and malformed lines return `None`.
+- `Windower`: sliding window over the stream (default 2.0 s = 100 samples, stride 12 samples).
+- `resample()`: stretches or shrinks a window to a fixed 64 steps.
+- `count_drops()`: counts missing sequence numbers.
 
-## What goes here
-- A reader for the ESP32 stream (USB serial first, BLE later)
-- Parsing each sample line into numbers
-- Cutting the stream into fixed-length windows (sliding window, size and stride from `configs/settings.yaml`)
-- Auto-reconnect if the connection drops mid-demo
-- A recorder script that saves labeled samples into `data/raw/<user>/`
-
-## Idea to check out
-Lexicon Glove keeps a sliding 2-second window and shifts it by one sample each time. See its Neural Network wiki page (linked in the main README).
+Still to do: auto-reconnect when the cable is unplugged mid-demo, and optional Bluetooth.
+Tests: `tests/test_reader.py`.

@@ -1,28 +1,23 @@
 # data/external
 
-**This is where the SignSpeak dataset will go.**
-
-**Owner:** `____`  **Status:** not downloaded
+The public **SignSpeak** dataset (American Sign Language letters and numbers from a 5-flex-sensor glove). The dataset file itself is git-ignored: download it yourself.
 
 ## Download
-1. Open https://doi.org/10.7910/DVN/ODY7GH (Harvard Dataverse, "SignSpeak American Sign Language Dataset", Version 1.1)
-2. Files tab -> `SignSpeakDataset.csv` (tab-delimited, about 9.8 MB) -> Download
-3. Save it here as `data/external/SignSpeakDataset.csv`
+1. Open https://doi.org/10.7910/DVN/ODY7GH (Harvard Dataverse, "SignSpeak American Sign Language Dataset", Version 1.1).
+2. Files tab, then `SignSpeakDataset.csv` (tab-delimited, about 9.8 MB), then Download.
+3. Save it as `data/external/SignSpeakDataset.csv`.
+4. Check the layout: `python scripts/inspect_dataset.py data/external`. The loader in `src/aiana/preprocessing/signspeak.py` assumes a column layout that has **not been verified yet**, so compare its printout with the real table.
 
 ## About it
-- 7,200 samples, 36 classes (A-Z, 1-10), 5 flex sensors
-- Recorded at 36 Hz, 50-80 time steps per gesture, 10-bit values (0-1023) from an Arduino
-- Table has 397 variables and 7,200 observations. Check which columns hold the sensor values and the label before writing the loader.
-- License: CC0 (public domain)
-- Paper: https://arxiv.org/abs/2407.12020
+- 7,200 samples, 36 classes (A-Z, 1-10), 5 flex sensors, no IMU.
+- Recorded at 36 Hz, 50-80 time steps per gesture, 10-bit values (0-1023) from an Arduino.
+- The table has 397 variables. License: CC0 (public domain). Paper: https://arxiv.org/abs/2407.12020
 
 ## How we use it
-- Build and test the whole pipeline before our glove is ready
-- Baseline numbers for the report ("our model on SignSpeak vs the published 92%")
-- Try the few-shot experiment (hold out some classes, add them from 1/3/5 examples)
-- Optional: pretrain, then fine-tune on our own data
-
-It has no IMU data and no custom or atypical gestures, so it cannot replace our own dataset.
+- Build and test the whole pipeline before the glove is ready.
+- Baseline numbers (kNN, SVM, Random Forest) with `python scripts/run_baselines.py`.
+- Optional pretraining before fine-tuning on our own data.
+- It is **not** a claim about our glove's accuracy: different sensors, rate and resolution, and no custom gestures.
 
 ## Cite
 Makkar, A., Makkar, D., Patel, A., Hebert, L. (2024). SignSpeak American Sign Language Dataset, V1.1. Harvard Dataverse. https://doi.org/10.7910/DVN/ODY7GH
