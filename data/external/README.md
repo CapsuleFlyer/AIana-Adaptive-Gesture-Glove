@@ -8,7 +8,7 @@ Run once: `python scripts/download_data.py` (needs internet; the file is git-ign
 1. Open https://doi.org/10.7910/DVN/ODY7GH (Harvard Dataverse, "SignSpeak American Sign Language Dataset", Version 1.1).
 2. Files tab, then `SignSpeakDataset.csv` (tab-delimited, about 9.8 MB), then Download.
 3. Save it as `data/external/SignSpeakDataset.csv`.
-4. Check the layout: `python scripts/inspect_dataset.py data/external`. The loader in `src/aiana/preprocessing/signspeak.py` assumes a column layout that has **not been verified yet**, so compare its printout with the real table.
+4. Check the layout: `python scripts/inspect_dataset.py data/external`. The table has `_id`, `word` (the label) and 395 columns `hand[t][s]` (time step 0-78, sensor 0-4, empty after the gesture ends). The loader in `src/aiana/preprocessing/signspeak.py` reads exactly these names.
 
 ## About it
 - 7,200 samples, 36 classes (A-Z, 1-10), 5 flex sensors, no IMU.

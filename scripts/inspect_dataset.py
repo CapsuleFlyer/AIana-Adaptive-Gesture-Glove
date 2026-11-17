@@ -15,5 +15,5 @@ for f in sorted(p for p in root.rglob("*") if p.is_file() and p.suffix.lower() i
     print("non-numeric columns:", nonnum[:5])
     print("NaN cells:", int(df.isna().sum().sum()), "| min/max of numeric:", df.select_dtypes("number").min().min(), df.select_dtypes("number").max().max())
     print(df.iloc[:2, :10].to_string())
-    for c in nonnum[:1]:
-        print("label values:", df[c].nunique(), df[c].unique()[:10])
+    for c in (["word"] if "word" in df.columns else nonnum[:1]):
+        print("label values:", df[c].nunique(), list(df[c].unique()[:40]))

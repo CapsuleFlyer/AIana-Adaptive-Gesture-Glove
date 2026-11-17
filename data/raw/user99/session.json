@@ -1,0 +1,11 @@
+{
+  "user_id": "user99",
+  "session_id": "s1",
+  "date": "2026-11-17",
+  "hand": "right",
+  "condition": "normal",
+  "refit": false,
+  "fw_version": 1,
+  "rate_hz": 50,
+  "notes": ""
+}
