@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, dev]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Python (lint + tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-ci.txt
+
+      # Light dependency set on purpose: no torch / audio / GUI packages needed for the tests.
+      - name: Install dependencies
+        run: pip install -r requirements-ci.txt
+
+      - name: Check configs and setup
+        run: python scripts/dev.py doctor
+
+      - name: Lint (real bugs only, such as syntax errors and undefined names)
+        run: ruff check .
+
+      - name: Tests (includes the wiring-pin consistency check)
+        run: python -m pytest
+
+  firmware:
+    name: Firmware (compile for ESP32)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: arduino/setup-arduino-cli@v2
+
+      - name: Cache the ESP32 board package
+        uses: actions/cache@v4
+        with:
+          path: ~/.arduino15
+          key: arduino15-esp32-3.3.12
+
+      - name: Install the ESP32 core
+        run: |
+          URL=https://espressif.github.io/arduino-esp32/package_esp32_index.json
+          arduino-cli core update-index --additional-urls "$URL"
+          arduino-cli core install esp32:esp32@3.3.12 --additional-urls "$URL"
+
+      # FQBN esp32:esp32:esp32 is "ESP32 Dev Module", the board selected in the Arduino IDE.
+      - name: Compile every sketch
+        run: |
+          for sketch in firmware/glove_esp32 firmware/bringup_tests/*/; do
+            echo "::group::$sketch"
+            arduino-cli compile --fqbn esp32:esp32:esp32 "$sketch"
+            echo "::endgroup::"
+          done

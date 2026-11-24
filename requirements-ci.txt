@@ -1,0 +1,10 @@
+# Light dependency set for CI and for quick setups (no PyTorch, no audio, no GUI automation).
+# Enough to run the tests, the baselines and the linter. The full set is in requirements.txt.
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+pyyaml
+pytest
+ruff
