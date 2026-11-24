@@ -1,11 +1,11 @@
 // Step 1: find the MPU6050 on the I2C bus.
-// Wiring: MPU6050 VCC -> 3V3, GND -> GND, SDA -> GPIO 21, SCL -> GPIO 22
+// Wiring: MPU6050 VCC -> 3V3, GND -> GND, SDA -> GPIO 25, SCL -> GPIO 26
 // Open Serial Monitor at 115200 baud. Expect: "Found device at 0x68".
 #include <Wire.h>
 
 void setup() {
   Serial.begin(115200);
-  Wire.begin(21, 22);
+  Wire.begin(25, 26);
   delay(1000);
   Serial.println("Scanning I2C...");
 }
@@ -20,7 +20,7 @@ void loop() {
     }
   }
   if (found == 0) {
-    Serial.println("No I2C devices found. Check: VCC=3V3, GND, SDA=GPIO21, SCL=GPIO22, solder joints.");
+    Serial.println("No I2C devices found. Check: VCC=3V3, GND, SDA=GPIO25, SCL=GPIO26, solder joints.");
   }
   Serial.println("--- scan done ---");
   delay(3000);

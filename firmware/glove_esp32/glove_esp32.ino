@@ -5,7 +5,7 @@
 // Lines starting with '#' are info/errors. Commands from the laptop (one line each): PING, START, STOP.
 // Values are RAW (flex = ADC counts 0..4095, IMU = raw int16). Calibration lives on the laptop.
 //
-// Wiring: flex dividers on GPIO 32,33,34,35,36 (ADC1), MPU6050 SDA=21, SCL=22, VCC=3V3.
+// Wiring: flex dividers on GPIO 32,33,34,35,36 (ADC1), MPU6050 SDA=25, SCL=26, VCC=3V3.
 #include <Wire.h>
 
 // ---- settings ----
@@ -55,7 +55,7 @@ void setup() {
   Serial.begin(115200);
   analogReadResolution(12);
   analogSetAttenuation(ADC_11db);
-  Wire.begin(21, 22);
+  Wire.begin(25, 26);
   Wire.setClock(400000);
   delay(200);
 
