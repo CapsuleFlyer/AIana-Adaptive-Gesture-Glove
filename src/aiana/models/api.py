@@ -25,7 +25,6 @@ class Normalizer:
         self.lo = self.hi = None
 
     def fit(self, open_hand, fist):
-        both = np.vstack([np.asarray(open_hand)[:, :5], np.asarray(fist)[:, :5]]).astype(np.float32)
         a, b = np.asarray(open_hand)[:, :5].mean(0), np.asarray(fist)[:, :5].mean(0)
         self.lo, self.hi = np.minimum(a, b), np.maximum(a, b)
         if (self.hi - self.lo < 50).any():   # sensor barely moved: flag it instead of dividing by ~0

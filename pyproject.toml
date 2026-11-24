@@ -13,7 +13,3 @@ extend-exclude = ["reference_code", "data", "notebooks", "saved_models"]
 # Deliberately small: only things that are real bugs (syntax errors, unused or undefined names).
 # Style rules (line length, semicolons) are left off so the checker stays quiet and useful.
 select = ["E9", "F"]
-
-[tool.ruff.lint.per-file-ignores]
-# TODO: `both` is assigned and never used in Normalizer.fit. Delete that line, then delete this entry.
-"src/aiana/models/api.py" = ["F841"]
