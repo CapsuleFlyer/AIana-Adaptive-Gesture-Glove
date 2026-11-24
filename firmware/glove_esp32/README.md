@@ -16,7 +16,7 @@ S,<seq>,<t_ms>,<f1..f5>,<ax,ay,az,gx,gy,gz>                    one line per samp
 - `STREAM_ON_BOOT = true` streams right away, handy for the Serial Monitor.
 
 ## Wiring
-Flex sensors on ADC1 pins GPIO 32, 33, 34, 35, 36, each in a voltage divider with a 10k resistor. MPU6050: SDA = GPIO 21, SCL = GPIO 22, VCC = 3V3. Details in [`docs/wiring/`](../../docs/wiring/).
+Flex sensors on ADC1 pins GPIO 32, 33, 34, 35, 36, each in a voltage divider with a 10k resistor. MPU6050: SDA = GPIO 25, SCL = GPIO 26, VCC = 3V3. Details in [`docs/wiring/`](../../docs/wiring/).
 
 ## Status
 Draft: not yet compiled or run on real hardware. Test with [`../bringup_tests/`](../bringup_tests/) and `scripts/reader.py` first.
