@@ -2,6 +2,11 @@
 
 > Giving every gesture a voice.
 
+[![CI](https://github.com/CapsuleFlyer/AIana-Adaptive-Gesture-Glove/actions/workflows/ci.yml/badge.svg)](https://github.com/CapsuleFlyer/AIana-Adaptive-Gesture-Glove/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![Board](https://img.shields.io/badge/board-ESP32%2038--pin-informational)
+![Sensors](https://img.shields.io/badge/sensors-5%20flex%20%2B%20MPU6050-informational)
+
 A sensor glove that **learns each user's own gestures** and turns them into **speech on live video calls** or **hands-free laptop actions**, built for people with limited speech or mobility.
 
 **Course:** AI2002 Artificial Intelligence, Semester Project, Fall 2026 (FAST-NUCES Islamabad)
@@ -174,6 +179,13 @@ Details and weekly targets: [`project-flow.md`](project-flow.md). Required deliv
 - Commit often, in small pieces, from your own branch.
 
 ## 8. Quick start
+
+New to the repo? [`docs/dev/windows-setup.md`](docs/dev/windows-setup.md) walks through setup, and [`CONTRIBUTING.md`](CONTRIBUTING.md) covers branches and pull requests. Wiring is in [`docs/wiring/pinout.md`](docs/wiring/pinout.md), and what we have tested on the hardware so far is in [`docs/wiring/bringup-log.md`](docs/wiring/bringup-log.md).
+
+```bash
+python scripts/dev.py doctor                # check your setup in one command
+python scripts/dev.py all                   # lint + tests, the same checks CI runs
+```
 
 The full app is not written yet. What works now:
 
