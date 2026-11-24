@@ -1,5 +1,5 @@
 import numpy as np
-from aiana.acquisition import Windower, count_drops, parse_line, read_samples, resample
+from aiana.acquisition.reader import Windower, count_drops, parse_line, read_samples, resample
 
 GOOD = "S,5,100,1,2,3,4,5,10,20,30,40,50,60"
 
